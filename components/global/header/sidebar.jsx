@@ -1,7 +1,18 @@
 import React from "react";
-import { UilCreateDashboard,UilUser,UilPen,UilFileGraph   } from "@iconscout/react-unicons";
+import {
+  UilCreateDashboard,
+  UilUser,
+  UilPen,
+  UilFileGraph,
+  UilMap ,
+  UilFileQuestionAlt 
+} from "@iconscout/react-unicons";
 import { NavbarButton } from "./sidebarComponent";
-import { FontColorComponent, PrimaryColor, ThridColor } from "../globalComponent";
+import {
+  FontColorComponent,
+  PrimaryColor,
+  ThridColor,
+} from "../globalComponent";
 export default function Sidebar({ ...attr }) {
   return (
     <PrimaryColor {...attr}>
@@ -13,14 +24,18 @@ export default function Sidebar({ ...attr }) {
             </ThridColor>
           </div>
           <div className="min-w-32 h-full leading-4 flex flex-col justify-center ml-2">
-            <FontColorComponent className="font-bold">Corruption</FontColorComponent>
-            <FontColorComponent className="font-thin">Perception Index</FontColorComponent>
+            <FontColorComponent className="font-bold">
+              Corruption
+            </FontColorComponent>
+            <FontColorComponent className="font-thin">
+              Perception Index
+            </FontColorComponent>
           </div>
         </div>
 
         <div className="top-bottom flex flex-col justify-between box-border h-full">
           <div className="nav-container w-full flex flex-col">
-            <NavbarButton
+            {/* <NavbarButton
               icon={<UilCreateDashboard></UilCreateDashboard>}
               text={"Dashboard"}
             />
@@ -44,6 +59,21 @@ export default function Sidebar({ ...attr }) {
             <NavbarButton
               icon={<UilCreateDashboard></UilCreateDashboard>}
               text={"Dashboard"}
+            /> */}
+
+            <NavbarButton
+              icon={<UilCreateDashboard></UilCreateDashboard>}
+              text={"Dashboard"}
+            />
+
+            <NavbarButton
+              icon={<UilFileQuestionAlt/>}
+              text={"Questionaire"}
+            />
+
+            <NavbarButton
+              icon={<UilMap/>}
+              text={"Maps"}
             />
           </div>
 

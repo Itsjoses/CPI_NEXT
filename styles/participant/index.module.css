@@ -1,0 +1,31 @@
+.borderCustom{
+    position: relative;
+}
+
+.borderCustom::before{
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    left: -2rem;
+    border-top: 3px solid purple;
+    border-left: 3px solid purple;
+}
+
+.borderCustom::after{
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    right: -1rem;
+    bottom: 0;
+    border-bottom: 3px solid purple;
+    border-right: 3px solid purple;
+}
+
+
+.imageBackground{
+    background-color: #e5e5f7;
+    background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#444cf7 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #444cf7 2px, #e5e5f7 2px) -1px 0;
+    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+}

@@ -48,6 +48,5 @@ export function FontColorComponent({children,...attr}){
         <div style={font} {...attr}>
             {children}
         </div>
-    )
-    
+    )   
 }
