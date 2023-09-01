@@ -4,8 +4,8 @@ import {
   UilUser,
   UilPen,
   UilFileGraph,
-  UilMap ,
-  UilFileQuestionAlt 
+  UilMap,
+  UilFileQuestionAlt,
 } from "@iconscout/react-unicons";
 import { NavbarButton } from "./sidebarComponent";
 import {
@@ -13,6 +13,7 @@ import {
   PrimaryColor,
   ThridColor,
 } from "../globalComponent";
+import Link from "next/link";
 export default function Sidebar({ ...attr }) {
   return (
     <PrimaryColor {...attr}>
@@ -61,20 +62,26 @@ export default function Sidebar({ ...attr }) {
               text={"Dashboard"}
             /> */}
 
-            <NavbarButton
-              icon={<UilCreateDashboard></UilCreateDashboard>}
-              text={"Dashboard"}
-            />
+            <Link href="\participant\">
+              <NavbarButton
+                icon={<UilCreateDashboard></UilCreateDashboard>}
+                text={"Home"}
+              />
+            </Link>
 
-            <NavbarButton
-              icon={<UilFileQuestionAlt/>}
-              text={"Questionaire"}
-            />
+            <Link href="\participant\questionnaire">
+              <NavbarButton
+                icon={<UilFileQuestionAlt />}
+                text={"Questionaire"}
+              />
+            </Link>
 
-            <NavbarButton
-              icon={<UilMap/>}
-              text={"Maps"}
-            />
+            <Link href="\participant\maps">
+              <NavbarButton
+                icon={<UilMap />}
+                text={"Maps"}
+              />
+            </Link>
           </div>
 
           <div className="nav-bottom">

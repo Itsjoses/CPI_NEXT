@@ -1,52 +1,66 @@
-import { FontContext, IconContext, ThemeContext } from "@/context/themeComponent"
-import { useContext, useEffect } from "react"
+import {
+  FontContext,
+  IconContext,
+  ThemeContext,
+} from "@/context/themeComponent";
+import { useContext, useEffect } from "react";
 
-export function PrimaryColor({children,...attr}) {
-    const theme = useContext(ThemeContext)
+export function PrimaryColor({ children, ...attr }) {
+  const theme = useContext(ThemeContext);
 
-    return (
+  return (
     <div style={theme.primaryColor} {...attr}>
-        {children}
+      {children}
     </div>
-    )
-}   
-
-export function SecondaryColor({children,...attr}){
-    const theme = useContext(ThemeContext)
-
-    
-    return (
-        <div style={theme.secondaryColor} {...attr}>
-            {children}
-        </div>
-    )
+  );
 }
 
-export function ThridColor({children,...attr}){
-    const theme = useContext(ThemeContext)
+export function SecondaryColor({ children, ...attr }) {
+  const theme = useContext(ThemeContext);
 
-    return (
-        <div style={theme.thirdColor} {...attr}>
-            {children}
-        </div>
-    )
+  return (
+    <div style={theme.secondaryColor} {...attr}>
+      {children}
+    </div>
+  );
 }
 
-export function IconColorComponent({children,...attr}){
-    const icon = useContext(IconContext)
+export function ThridColor({ children, ...attr }) {
+  const theme = useContext(ThemeContext);
 
-    return (
-        <div style={icon} {...attr}>
-            {children}
-        </div>
-    )
+  return (
+    <div style={theme.thirdColor} {...attr}>
+      {children}
+    </div>
+  );
 }
 
-export function FontColorComponent({children,...attr}){
-    const font = useContext(FontContext)
+export function IconColorComponent({ children, ...attr }) {
+  const icon = useContext(IconContext);
+
+  return (
+    <div style={icon} {...attr}>
+      {children}
+    </div>
+  );
+}
+
+export function FontColorComponent({ children, ...attr }) {
+  const font = useContext(FontContext);
+  return (
+    <div style={font} {...attr}>
+      {children}
+    </div>
+  );
+}
+
+export function BtnCustom({ title }) {
     return (
-        <div style={font} {...attr}>
-            {children}
-        </div>
-    )   
+        <div>
+        <button className="py-2 px-4 text-sm flex items-center rounded-full bg-green-200 w-fit">
+          {title}
+        </button>
+      </div>
+    )
+
 }
