@@ -16,9 +16,10 @@ module.exports = {
     },
     minWidth:{
       '16': '4rem',
-      '32': '8rem'
+      '32': '8rem',
+      'screen': '100vh'
     }
 
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }

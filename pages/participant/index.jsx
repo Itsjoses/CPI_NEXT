@@ -9,7 +9,7 @@ export default function Index() {
 
   return (
     <HeaderLayout>
-        <div className="Jumbotron flex w-full h-4/5">
+        <div className="Jumbotron flex w-full h-[80vh]">
           <div className="Left-Content w-3/5 h-full flex justify-center box-border flex-col ">
             <div className="w-full flex justify-center mb-8">
               <div className={`w-4/5 ${styles.borderCustom}`}>
@@ -23,7 +23,7 @@ export default function Index() {
                 </p>
               </div>
             </div>
-            <div className={`w-full mx-auto w-4/5 relative`}>
+            <div className={`mx-auto w-4/5 relative`}>
               <button
                 style={theme.thirdColor}
                 className={`${styles.buttonCustom} py-2 px-4 mt-2 rounded-md text-white text-start h-full`}
