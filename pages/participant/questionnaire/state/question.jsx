@@ -1,4 +1,6 @@
+import { FontColorComponent } from "@/components/global/globalComponent";
 import { QuestionComponent } from "@/components/local/participant/questionnaire/QuestionComponent";
+import { Pagination } from "@mui/material";
 import React, { useState } from "react";
 
 function QuestionRenderer({ question, questionNumber, onChange }) {
@@ -47,7 +49,7 @@ export default function Question() {
 
   const [answers, setAnswers] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const questionsPerPage = 5;
+  const questionsPerPage = 10;
 
   const handleAnswerChange = (questionNumber, value) => {
     setAnswers((prevAnswers) => ({
@@ -56,21 +58,34 @@ export default function Question() {
     }));
   };
 
-  const collectAnswers = () => {
+  const collectAnswers = (questionLength) => {
+    if(Object.keys(answers).length != questionLength){
+        console.log(questionLength);
+        console.log(answers.length);
+        console.log("belum kejawab semua");
+    } 
+    else{
+        console.log("success");
+    }
     console.log("Semua jawaban:", answers);
   };
 
   //paginate
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (e, pageNumber) => {
+    console.log(pageNumber);
+    setCurrentPage(pageNumber);
+  };
   const indexOfLastQuestion = currentPage * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const paginateCount = questions.length / questionsPerPage;
   const currentQuestions = questions.slice(
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col gap-8">
+      <div className="text-3xl font-bold w-full flex justify-center"><FontColorComponent>Corruption Perception Index Questionnaire</FontColorComponent></div>
       <div className="flex flex-col gap-4">
         {currentQuestions.map((question, index) => (
           <QuestionComponent
@@ -82,17 +97,15 @@ export default function Question() {
           />
         ))}
       </div>
-      <div>
-        {Array.from(
-          { length: Math.ceil(questions.length / questionsPerPage) },
-          (_, i) => (
-            <button key={i} onClick={() => paginate(i + 1)}>
-              {i + 1}
-            </button>
-          )
-        )}
+      <div className="flex w-full justify-between">
+        <Pagination
+          count={paginateCount}
+          color="primary"
+          page={currentPage}
+          onChange={paginate}
+        />
+        <button onClick={() => collectAnswers(questions.length)}><FontColorComponent>Kumpulkan Jawaban</FontColorComponent></button>
       </div>
-      <button onClick={collectAnswers}>Kumpulkan Jawaban</button>
     </div>
   );
 }

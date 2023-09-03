@@ -1,24 +1,26 @@
-import { BtnCustom } from "@/components/global/globalComponent";
-import React from "react";
+import { BtnCustom, FontColorComponent } from "@/components/global/globalComponent";
+import React, { useContext } from "react";
+import { changeStateFunction } from "..";
 
 export default function QuestionArea() {
+  const {next,prev} = useContext(changeStateFunction)
   return (
-    <>
+    <div className="flex flex-col gap-4 items-center">
       <div className="text-center font-black text-2xl">
-        Corruption Perception Index Questionnaire
+        <FontColorComponent>Corruption Perception Index Questionnaire</FontColorComponent>
       </div>
-      <div className="text-center font-black text-xl">Let's get Started</div>
+      <div className="text-center font-black text-xl"><FontColorComponent>Let's get Started</FontColorComponent></div>
       <div className="flex items-center gap-4">
-        <p>Questionnaire Area</p>
+        <FontColorComponent>Questionnaire Area</FontColorComponent>
         <select className="select select-bordered select-sm ">
           <option className="text-sm">Jakarta</option>
           <option className="text-sm">Bandung</option>
         </select>
       </div>
       <div className="flex gap-6">
-        <BtnCustom title={"Previous"} />
-        <BtnCustom title={"Continue"} />
+        <BtnCustom title={"Previous"} setFunction={prev}/>
+        <BtnCustom title={"Continue"} setFunction={next}/>
       </div>
-    </>
+    </div>
   );
 }

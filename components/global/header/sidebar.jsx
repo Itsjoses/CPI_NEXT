@@ -6,6 +6,7 @@ import {
   UilFileGraph,
   UilMap,
   UilFileQuestionAlt,
+  UilSignout 
 } from "@iconscout/react-unicons";
 import { NavbarButton } from "./sidebarComponent";
 import {
@@ -14,7 +15,16 @@ import {
   ThridColor,
 } from "../globalComponent";
 import Link from "next/link";
+import { restApi } from "@/api/apiTemplate";
+import { useRouter } from "next/router";
+import Cookies from "universal-cookie";
 export default function Sidebar({ ...attr }) {
+  const router = useRouter()
+  async function logout(){
+    restApi("/auth/logout","POST",null,true,true,new Cookies().get("Authorization")).then(()=>{
+      router.push("/")
+    })
+  }
   return (
     <PrimaryColor {...attr}>
       <div className="h-full w-full flex flex-col ">
@@ -62,21 +72,21 @@ export default function Sidebar({ ...attr }) {
               text={"Dashboard"}
             /> */}
 
-            <Link href="\participant\">
+            <Link href="/participant/">
               <NavbarButton
                 icon={<UilCreateDashboard></UilCreateDashboard>}
                 text={"Home"}
               />
             </Link>
 
-            <Link href="\participant\questionnaire">
+            <Link href="/participant/questionnaire">
               <NavbarButton
                 icon={<UilFileQuestionAlt />}
                 text={"Questionaire"}
               />
             </Link>
 
-            <Link href="\participant\maps">
+            <Link href="/participant/maps">
               <NavbarButton
                 icon={<UilMap />}
                 text={"Maps"}
@@ -84,9 +94,9 @@ export default function Sidebar({ ...attr }) {
             </Link>
           </div>
 
-          <div className="nav-bottom">
+          <div className="nav-bottom" onMouseDown={logout}>
             <NavbarButton
-              icon={<UilCreateDashboard></UilCreateDashboard>}
+              icon={<UilSignout></UilSignout>}
               text={"Logout"}
             />
           </div>

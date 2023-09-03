@@ -1,10 +1,11 @@
-import React from 'react'
-import ThemeComponent from './themeComponent'
+import React from "react";
+import ThemeComponent from "./themeComponent";
+import UserComponent from "./userComponent";
 
-export default function DatabaseComponents({children}) {
+export default function DatabaseComponents({ children }) {
   return (
-    <ThemeComponent>
-        {children}
-    </ThemeComponent>
-  )
+    <UserComponent>
+      <ThemeComponent>{children}</ThemeComponent>
+    </UserComponent>
+  );
 }

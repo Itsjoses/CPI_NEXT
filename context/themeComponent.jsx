@@ -9,10 +9,12 @@ export const IconContext = createContext();
 export const FontContext = createContext();
 
 export default function ThemeComponent({ children }) {
+
   const [theme, setTheme] = useState(themeColor.light);
   const [icon, setIcon] = useState(iconColor.light);
   const [font, setFont] = useState(fontColor.light);
 
+  
   function changeTheme() {
     if (theme == themeColor.light) {
       setTheme(themeColor.dark);

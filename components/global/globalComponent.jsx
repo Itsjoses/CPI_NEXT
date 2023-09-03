@@ -54,13 +54,32 @@ export function FontColorComponent({ children, ...attr }) {
   );
 }
 
-export function BtnCustom({ title }) {
+export function BtnCustom({ title,setFunction }) {
     return (
         <div>
-        <button className="py-2 px-4 text-sm flex items-center rounded-full bg-green-200 w-fit">
+        <button className="py-2 px-4 text-sm flex items-center rounded-full bg-green-200 w-fit" onMouseDown={setFunction}>
           {title}
         </button>
       </div>
     )
 
+}
+
+export function BallBounce({ Type }) {
+  var state = "animate-bounce";
+  if (Type == "login") state = "animate-bounce";
+  else state = "animate-spin";
+  return (
+    <PrimaryColor className="hidden lg:flex h-screen w-1/2 flex items-center justify-center h-full relative">
+      <div
+        className={
+          "w-60 h-60 bg-gradient-to-tr from-violet-500 to-pink-500 rounded-full flex items-center justify-center " +
+          state
+        }
+      >
+        <div className="text-white text-4xl font-bold">CPI</div>
+      </div>
+      <div className="w-full h-[45%] backdrop-blur-lg absolute bottom-0"></div>
+    </PrimaryColor>
+  );
 }

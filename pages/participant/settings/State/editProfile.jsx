@@ -4,42 +4,50 @@ import {
   SelectField,
   SettingFormLayout,
 } from "@/components/local/participant/settings/formComponent";
-import React from "react";
+import { userContext } from "@/context/userComponent";
+import React, { useContext, useEffect, useState } from "react";
 
 export default function EditProfile() {
+  const { user, setUser } = useContext(userContext);
+  const [currentUser, setCurrentUser] = useState(user);
+
+  useEffect(() => {
+    console.log(currentUser);
+  });
   return (
     <SettingFormLayout label={"Edit Profile"}>
       <div className="form-control w-full">
-        <InputField label={"Name"} placeholdervalue={"Jose"} type={"type"} />
+        <InputField
+          label={"Name"}
+          type={"type"}
+          stateValue={currentUser.name}
+          state={setCurrentUser}
+        />
         <SelectField
           label={"Gender"}
-          firstValue={"Male"}
+          stateValue={currentUser.gender}
+          state={setCurrentUser}
           option={
             <>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </>
           }
         />
         <SelectField
-          label={"Gender"}
-          firstValue={"12"}
+          label={"Age Category"}
           option={
             <>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
+              <option>{"<18"}</option>
+              <option>{"<18"}</option>
+              <option>{"<18"}</option>
+              <option>{"<18"}</option>
+              <option>{"<18"}</option>
             </>
           }
         />
         <SelectField
           label={"Last Education"}
-          firstValue={"SD"}
           option={
             <>
               <option>Star Wars</option>
@@ -52,7 +60,6 @@ export default function EditProfile() {
         />
         <SelectField
           label={"Occupation"}
-          firstValue={"Choose Last Occupation"}
           option={
             <>
               <option>Star Wars</option>
