@@ -1,14 +1,18 @@
 import HeaderLayout from "@/components/global/header/headerLayout";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import waveman from "@/public/images/business-3d-businessman-in-dark-blue-suit-waving-hello.png";
 import styles from "@/styles/participant/index.module.css";
 import { ThemeContext } from "@/context/themeComponent";
 import { FontColorComponent } from "@/components/global/globalComponent";
 import { langauge } from "@/globalValue/language";
+import { userContext } from "@/context/userComponent";
 export default function Index() {
   const theme = useContext(ThemeContext);
-
+  const {user, setUser } = useContext(userContext);
+  useEffect(() => {
+    console.log(user);
+  },[])
   return (
     <HeaderLayout>
         <div className="Jumbotron flex w-full h-[80vh]">

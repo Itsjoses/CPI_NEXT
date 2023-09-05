@@ -4,12 +4,14 @@ import {
 } from "@/components/global/globalComponent";
 import React from "react";
 
-export function InputField({
+export function SettingInputField({
   label,
   placeholdervalue,
   type,
-  stateValue,
   state,
+  changeState,
+  dataDisplay,
+  propertyType,
 }) {
   return (
     <div>
@@ -20,22 +22,43 @@ export function InputField({
         type={type}
         placeholder={placeholdervalue}
         className="input input-bordered w-full ring-2 ring-indigo-500 bg-white text-black"
-        value={stateValue}
+        value={dataDisplay}
         onChange={(e) => {
-          state(e.target.value);
+          const updatedStateValue = {
+            ...state,
+            [propertyType]: e.target.value,
+          };
+          changeState(updatedStateValue);
         }}
       />
     </div>
   );
 }
 
-export function SelectField({ label, option, stateValue, state }) {
+export function SettingSelectField({
+  label,
+  option,
+  state,
+  changeState,
+  dataDisplay,
+  propertyType
+}) {
   return (
     <div>
       <label className="label">
         <span className="label-text">{label}</span>
       </label>
-      <select className="select select-bordered w-full" value={stateValue} onChange={(e) => state(e.target.value)} >
+      <select
+        className="select select-bordered w-full"
+        value={dataDisplay}
+        onChange={(e) => {
+          const updatedStateValue = {
+            ...state,
+            [propertyType]: e.target.value,
+          };
+          changeState(updatedStateValue);
+        }}
+      >
         {option}
       </select>
     </div>

@@ -3,6 +3,8 @@ import {
   IconContext,
   ThemeContext,
 } from "@/context/themeComponent";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 
 export function PrimaryColor({ children, ...attr }) {
@@ -54,15 +56,27 @@ export function FontColorComponent({ children, ...attr }) {
   );
 }
 
-export function BtnCustom({ title,setFunction }) {
-    return (
-        <div>
-        <button className="py-2 px-4 text-sm flex items-center rounded-full bg-green-200 w-fit" onMouseDown={setFunction}>
-          {title}
-        </button>
-      </div>
-    )
+export function BtnCustom({ title, setFunction }) {
+  return (
+    <div>
+      <ThridColor
+        className="text-white cursor-pointer py-2 px-4 text-sm flex items-center rounded-full bg-green-200 w-fit"
+        onMouseDown={setFunction}
+      >
+        {title}
+      </ThridColor>
+    </div>
+  );
+}
 
+export function BigBtn({ title, setFunction, ...tailwind }) {
+  return (
+    <div {...tailwind} onMouseDown={setFunction}>
+      <ThridColor className="text-white flex justify-center p-2 rounded-md font-semibold cursor-pointer">
+        {title}
+      </ThridColor>
+    </div>
+  );
 }
 
 export function BallBounce({ Type }) {
@@ -81,5 +95,37 @@ export function BallBounce({ Type }) {
       </div>
       <div className="w-full h-[45%] backdrop-blur-lg absolute bottom-0"></div>
     </PrimaryColor>
+  );
+}
+
+export function Modal({ title, subTitle }) {
+  return (
+    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+      <div className="modal-box bg-white">
+        <h3 className="modal-title font-bold text-lg text-black"></h3>
+        <p className="modal-subtitle py-4 text-black"></p>
+        <div className="modal-action bg-white">
+          <Link href={"/participant/"} className="btn text-white">
+            Close
+          </Link>
+        </div>
+      </div>
+    </dialog>
+  );
+}
+
+export function ModalOutsideClose({ title, subTitle }) {
+  return (
+    <dialog id="my_modal_2" className="modal">
+      <div className="modal-box  bg-white ">
+        <h3 className="modal-title font-bold text-lg text-red-500">Hello!</h3>
+        <p className="modal-subtitle py-4 text-black">
+          Press ESC key or click outside to close
+        </p>
+      </div>
+      <form method="dialog" className="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   );
 }

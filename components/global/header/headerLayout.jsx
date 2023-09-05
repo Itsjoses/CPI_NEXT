@@ -32,7 +32,7 @@ export default function HeaderLayout({ children }) {
   return (
     <SecondaryColor className="w-auto h-screen flex relative">
       <Sidebar
-        className={`z-10 absolute ${toggleMobile ? "-left-full" : "left-0"} ${
+        className={`z-20 absolute ${toggleMobile ? "-left-full" : "left-0"} ${
           toggleDesktop ? `lg:w-60` : `lg:w-20`
         } ease-in-out duration-300 lg:fixed lg:left-0 h-screen py-4 px-2 overflow-hidden border-r-2 border-slate-200 `}
       />
@@ -40,7 +40,7 @@ export default function HeaderLayout({ children }) {
         onMouseDown={handleToggleMobile}
         className={`${
           toggleMobile ? "hidden" : "absolute"
-        } lg:hidden w-screen h-screen bg-black opacity-30`}
+        } lg:hidden w-screen h-screen bg-black opacity-30 z-10`}
       ></div>
       <div
         className={`ease-in-out duration-300 ${
@@ -52,15 +52,34 @@ export default function HeaderLayout({ children }) {
             <UilBars
               onMouseDown={handleToggleDesktop}
               className="desktop hidden lg:block"
-              style={iconColor}/>
+              style={iconColor}
+            />
             <UilBars
               onMouseDown={handleToggleMobile}
               className="mobile-and-tablet block lg:hidden"
-              style={iconColor}/>
+              style={iconColor}
+            />
           </div>
-          <Link href={"/participant/settings"} className="right">
-            <UilSetting style={iconColor}/>
-          </Link>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="flex gap-2">
+              Setting <UilSetting style={iconColor} />
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-44"
+            >
+              
+              <li>
+                <Link href={"/participant/settings/editProfile"}>Edit Profile</Link>
+              </li>
+              <li>
+                <Link href={"/participant/settings/resetPassword"}>Change Password</Link>
+              </li>
+            </ul>
+          </div>
+          {/* <Link href={"/participant/settings"} className="right">
+            <UilSetting style={iconColor} />
+          </Link> */}
         </PrimaryColor>
         <SecondaryColor className="w-full box-border flex flex-col">
           {children}

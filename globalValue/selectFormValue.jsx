@@ -1,0 +1,3 @@
+export const occupations = ["Legislatif / eksekutif / Pejabat","Anggota DPR","Anggota DPR Provinsi","Anggota DPR Kabupaten/Kota","Anggota BPD","Anggota BPK","Pengacara","Notaris","Perangkat Desa","Kepala Desa","Guru","Dosen","Wiraswasta","Anggota TNI dan Polri","PNS/ASN/Aparat Pemda","BUMN/BUMD","Manajer","Tenaga Profesional","Teknisi dan Asisten Tenaga Profesional","Tenaga Tata Usaha","Tenaga Usaha Pertanian dan Peternakan","Tenaga Usaha Jasa dan Tenaga Usaha Penjualan di Toko dan Pasar","Tenaga Pengolahan dan Kerjinan","Operator dan Perakit Mesin","Pekerja Kasar, Tenaga Kebersihan, dan Tenaga Lepas","LSM","Rohaniawan/wati","Pensiunan","Lainnya"]
+
+

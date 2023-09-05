@@ -1,4 +1,4 @@
-import { BtnCustom, FontColorComponent } from "@/components/global/globalComponent";
+import { BtnCustom, FontColorComponent, ThridColor } from "@/components/global/globalComponent";
 import React, { useContext } from "react";
 import { changeStateFunction } from "..";
 

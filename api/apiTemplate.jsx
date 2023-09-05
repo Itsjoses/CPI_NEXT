@@ -43,7 +43,7 @@ export async function restApi(path,method,body,useCredentials=false,useAuthoriza
         return {
             raw: e,
             status: e.response.status,
-            data: e.response.data.error,
+            data: e.response.data.message,
             success: false
           }
     }

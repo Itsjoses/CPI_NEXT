@@ -9,11 +9,11 @@ export function QuestionComponent({
 }) {
   const options = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="flex flex-col gap-2">
-      <FontColorComponent>{questionNumber+1} . {question}</FontColorComponent>
-      <div className="w-full flex">
+    <div className="flex flex-col gap-4">
+      <FontColorComponent className="font-bold text-lg">{questionNumber+1} . {question.name}</FontColorComponent>
+      <div className="w-full flex items-center">
         <div className="min-w-[12%]"><FontColorComponent>Highly Disagree</FontColorComponent></div>
-        <div className="w-[78%] flex justify-evenly">
+        <div className="w-[78%] flex justify-evenly items-center">
           {options.map((v) => (
             <div key={v} onMouseDown={() => onChange(questionNumber, v)}>
               {questionValueState === v ? (
@@ -32,7 +32,7 @@ export function QuestionComponent({
 
 export function NoFocusButton({ value }) {
   return (
-    <div className="h-8 w-8 rounded-full bg-cyan-200 hover:bg-cyan-400 flex justify-center items-center text-black">
+    <div className="h-10 w-10 rounded-full bg-cyan-200 hover:bg-cyan-400 flex justify-center items-center text-black">
       <FontColorComponent>{value}</FontColorComponent>
     </div>
   );
@@ -40,8 +40,8 @@ export function NoFocusButton({ value }) {
 
 export function FocusButton({ value }) {
   return (
-    <div className="h-8 w-8 rounded-full bg-cyan-800 flex justify-center items-center text-white">
-      <FontColorComponent>{value}</FontColorComponent>
+    <div className="h-10 w-10 rounded-full bg-cyan-700 flex justify-center items-center text-white">
+      {value}
     </div>
   );
 }
