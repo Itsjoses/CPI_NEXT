@@ -10,9 +10,6 @@ import { userContext } from "@/context/userComponent";
 export default function Index() {
   const theme = useContext(ThemeContext);
   const {user, setUser } = useContext(userContext);
-  useEffect(() => {
-    console.log(user);
-  },[])
   return (
     <HeaderLayout>
         <div className="Jumbotron flex w-full h-[80vh]">

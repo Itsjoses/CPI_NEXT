@@ -98,7 +98,7 @@ export default function Index() {
       <div className="w-full lg:w-1/2 h-full bg-white flex justify-center items-center bg-blue-200">
         <SecondaryColor className="w-[60%] p-8 gap-6 flex flex-col rounded-md">
           <FontColorComponent className="text-center text-3xl font-black">
-            Let's Head Inside
+            {"Let's Head Inside"}
           </FontColorComponent>
           <InputField
             state={useEmail}
@@ -113,7 +113,7 @@ export default function Index() {
             type={"Password"}
           ></InputField>
           <FontColorComponent className="text-xs font-semibold ">
-            <p className="text-purple-900">Don't have an account?</p>
+            <p className="text-purple-900">{"Don't have an account?"}</p>
           </FontColorComponent>
           <ThridColor className="rounded-md">
             <div

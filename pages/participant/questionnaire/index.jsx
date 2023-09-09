@@ -1,11 +1,6 @@
-import { BtnCustom, PrimaryColor } from "@/components/global/globalComponent";
+import { PrimaryColor } from "@/components/global/globalComponent";
 import HeaderLayout from "@/components/global/header/headerLayout";
 import React, { createContext, useEffect, useState } from "react";
-import QuestionYear from "./state/questionYear";
-import QuestionAgree from "./state/questionAgree";
-import QuestionArea from "./state/questionArea";
-import { Testing } from "./state/testing";
-import Question from "./state/question";
 import QuestionnaireState from "./questionnaireState";
 import { restApi } from "@/api/apiTemplate";
 import Cookies from "universal-cookie";
